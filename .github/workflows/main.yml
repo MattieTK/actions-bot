@@ -1,0 +1,12 @@
+name: Fetch Channels Cron
+on:
+  schedule:
+  - cron: "0/5 * * * *"
+  workflow_dispatch:
+jobs:
+  URLHealthCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch URL
+        run: |
+          curl -o output.json https://live-news-api.vercel.app/api/channels
